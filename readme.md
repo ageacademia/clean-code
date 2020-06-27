@@ -19,4 +19,4 @@
 <a name="chapter1">
 <h1>Chapter 1 -  Clean Code</h1>
 </a>
-LeBlanc's law: *Later equals never*.
+LeBlanc's law: _Later equals never_.
