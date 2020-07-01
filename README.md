@@ -46,3 +46,41 @@ Boy Scout Rule: _Leave the campground cleaner than you found it._
 * One word per concept, across the codebase. Use only one of `fetch`, `get`, `retrieve` to achieve the same purpose in different classes.
 * If a variable name by itself is vague (`state`), add context to make it more meaningful `firstName`, `lastName`, put it in an `Address` class
 * If a class name is redundant or too specific/rigit (`GasStationDeluxeAccountAddress`), shorten it or define a more appropriate name
+
+<a name="chapter3">
+<h1>Chapter 3 - Functions</h1>
+</a>
+
+* Lots of little functions
+* For branching, like `if`, `else`, `while` - blocks inside should be 1 line long
+* Functions should do one thing. That should be clear from the stated name of function - its contents are one level of abstraction below. If you can extract another function with a name that is not a restatement of its implementation, it's doing more than one thing.
+* Function implementation should be on the same level of abstraction. `append` to a string is not the same level as `render(pagePath)`.
+* [Open closed principle](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle) - program behavior can be extended _without_ access to source
+* [Single responsibility principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) - there should only be one reason for a class to change
+* `switch` statements should appear once, are used to polymorphic objects, and hidden behind an inheritance relationship. 
+```java
+public Money calculatePay(Employee e) throws InvalidEmployeeType {
+ switch (e.type) { 
+  case COMMISSIONED:
+   return calculateCommissionedPay(e); 
+  case HOURLY:
+   return calculateHourlyPay(e); 
+  case SALARIED:
+  return calculateSalariedPay(e); 
+ default:
+  throw new InvalidEmployeeType(e.type); 
+ }
+}
+```
+The above example violates many good principles (like the two above), but it's also very inflexible - if you have to implement other necessary functions like `isPayday(Employeee e, Date date)`, or `deliverPay(Employee e, Money pay)`, you would inevitably require the same `switch` statement structure. For this case, the solution is to use an abstract factory, so `switch` is guaranteed to be only used once, since the factory will polymorphically dispatch a `Employee` object, which implements the necessary logic.
+* Long descriptive names are better than long descriptive comments. Try to let them tell a story (so that you would logically expect how the function to be implemented, and also helps you sanity check!)
+
+### Function arguments
+* Avoid three (triadic) arguments where possible.
+
+#### Monadic Forms
+* Good: ask a question about an argument. Transform the argument, and return something new. Use the argument to _alter_ the system (be very explicit about this!)
+* Bad: Using an output argument instead of a return value
+
+#### Flag arguments
+* Try to avoid passing flags as arguments. Just split the function into two.
