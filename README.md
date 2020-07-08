@@ -77,10 +77,30 @@ The above example violates many good principles (like the two above), but it's a
 
 ### Function arguments
 * Avoid three (triadic) arguments where possible.
+* Try to reduce two (dyadic) arguments to one (monadic).
 
 #### Monadic Forms
 * Good: ask a question about an argument. Transform the argument, and return something new. Use the argument to _alter_ the system (be very explicit about this!)
-* Bad: Using an output argument instead of a return value
+* Bad: Using an output argument instead of a return value. If your function has to change the state of something, have it change the state of the owning object.
 
 #### Flag arguments
 * Try to avoid passing flags as arguments. Just split the function into two.
+
+#### Argument Lists
+* Functions that take variable arguments can be monads, dyads or triads, but it must be explicitly grouped. For example:
+`public String format(String format, Object... args)` is clearly a dyad, but can take as many parameters as the `format` string requires.
+
+#### Verbs and Keywords
+* Function: verb. Argument: noun. e.g. `writeField(name)`
+* `assertEquals` -> `assertExpectedEqualsActual(expected, actual)`.
+
+### No Side Effects
+* don't do _hidden_ things, which aren't explicitly returned or stated by the function name.
+
+### Exceptions instead of Error Codes
+* Exceptions prevent deeply nested structures, where you'd have to return error codes each time.
+* Put try/catch blocks in their own functions, so there is nice separation
+* Nothing after catch/finally block.
+
+### How to write functions
+Keep editing and revising it until it reads well and follows the rules
