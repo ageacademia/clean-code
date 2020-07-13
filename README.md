@@ -104,3 +104,32 @@ The above example violates many good principles (like the two above), but it's a
 
 ### How to write functions
 Keep editing and revising it until it reads well and follows the rules
+
+
+<a name="chapter4">
+<h1>Chapter 4 -  Comments</h1>
+</a>
+Good comments:
+* Legal comments
+* Information on string formatting, regex
+* Explain intent 
+* Clarification of an obscure argument
+* Warn about consequences (this takes a long time to run!)
+* TODOs (should be done, but can't be done at the moment).
+* Amplify something as important
+* Public APIs should have docs
+
+Bad comments:
+* Redundant comments, comments that repeat what the code is saying
+* Misleading: function returning _when_ vs _if_
+* Don't have docs for every function or variable
+* Don't have journal or log comments
+* If a comment reads like it could be implemented, then refactor so comment can be removed
+* HTML comments in source
+* Don't give systemwide information in the context of a local comment
+* Don't give too much information (technical details are likely too specific when describing a function)
+* The connection between a comment and the code shouuld be obvious. If you're using something like a magic number, you should clearly reference what it means in the comment.
+
+<a name="chapter5">
+<h1>Chapter 5 -  Formatting</h1>
+</a>
