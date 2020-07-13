@@ -109,7 +109,9 @@ Keep editing and revising it until it reads well and follows the rules
 <a name="chapter4">
 <h1>Chapter 4 -  Comments</h1>
 </a>
+
 Good comments:
+
 * Legal comments
 * Information on string formatting, regex
 * Explain intent 
