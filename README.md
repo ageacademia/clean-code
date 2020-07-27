@@ -110,8 +110,7 @@ Keep editing and revising it until it reads well and follows the rules
 <h1>Chapter 4 -  Comments</h1>
 </a>
 
-Good comments:
-
+## Good comments:
 * Legal comments
 * Information on string formatting, regex
 * Explain intent 
@@ -121,7 +120,7 @@ Good comments:
 * Amplify something as important
 * Public APIs should have docs
 
-Bad comments:
+## Bad comments:
 * Redundant comments, comments that repeat what the code is saying
 * Misleading: function returning _when_ vs _if_
 * Don't have docs for every function or variable
@@ -134,4 +133,28 @@ Bad comments:
 
 <a name="chapter5">
 <h1>Chapter 5 -  Formatting</h1>
+</a>
+
+## Vertical Formatting
+* Files are no more than 500 lines
+* Files should be like reading a newspaper: Top: name, high-level concepts and algorithms, detail downward
+
+### Vertical distance
+Concepts that are closely related should be verticaly close to each other! Avoid having to hop around source to follow a _logical_ process
+
+#### Dependent functions
+The caller should be above the callee, so the program has a natural flow.
+
+## Horizontal Formatting
+* Lines should be short (Hollerith limit: 80)
+
+### Horizontal density 
+* Assignment statements have whitespace around them `a = 1`
+* Precedence of operators (`b*b - 4*a*c`)
+
+### Horizontal alignment
+* It's not useful. 
+
+<a name="chapter6">
+<h1>Chapter 6 -  Ojbects and Data Structures</h1>
 </a>
