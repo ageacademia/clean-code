@@ -156,5 +156,8 @@ The caller should be above the callee, so the program has a natural flow.
 * It's not useful. 
 
 <a name="chapter6">
-<h1>Chapter 6 -  Ojbects and Data Structures</h1>
+<h1>Chapter 6 -  Objects and Data Structures</h1>
 </a>
+
+Try to not expose the details of your data. Abstractions should hide information away from the user.
+
