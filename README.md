@@ -159,5 +159,28 @@ The caller should be above the callee, so the program has a natural flow.
 <h1>Chapter 6 -  Objects and Data Structures</h1>
 </a>
 
-Try to not expose the details of your data. Abstractions should hide information away from the user.
+* Try to not expose the details of your data. Abstractions should hide information away from the user.
+* Objects abstract away detail and expose functions to manipulate data. Data structures expose data but don't expose any meaningful functions.
+
+## Law of Demeter
+A module should not know about the innards of the objects it manipulates. 
+For a function `f` of a class `C`:, only call methods of
+* `C`
+* Objects created by `f`
+* Objects passed to `f`
+* Objects in an instance variable of `C`
+* Invoke only friends, not strangers
+
+### Train wreck
+`outputDir = ctxt.getOptions().getScratchDir().getAbsolutePath()` looks like many coupled train cars. Instead look to split them up into separate lines.
+If `ctxt` and co are data structures without behavior, then they naturally expose their structure, so there's no Demeter violation.
+
+### Hybrids
+Avoid hybrids (half object and data structure)
+
+### Hiding Structure
+What if `ctxt` and co are actual objects? We shouldn't try to encapsulate the exact behavior we want into one method, because that leads to combinatorial explosion of methods.
+If we look at its implementation, we should instead move the logic to the `ctxt` object instead.
+
+
 
