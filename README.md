@@ -185,6 +185,7 @@ If we look at its implementation, we should instead move the logic to the `ctxt`
 <a name="chapter7">
 <h1>Chapter 7-  Error Handling</h1>
 </a>
+
 * Write your Try-Catch statement first. This is so that the scope is defined first (and you think in terms of a transaction). Have your tests force exceptions, then change the behavior of the handler to pass the tests.
 * Exceptions should have enough context to determine the source of an error (?)
 * Create a class that handles a special case for you. This way, the client code doesn't have to deal with the exception, and you don't resort to pushing error handling to the edges of your code.
