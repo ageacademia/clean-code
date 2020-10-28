@@ -191,3 +191,29 @@ If we look at its implementation, we should instead move the logic to the `ctxt`
 * Create a class that handles a special case for you. This way, the client code doesn't have to deal with the exception, and you don't resort to pushing error handling to the edges of your code.
 * Don't return `null` when handling errors.
 * Don't pass `null` when handling errors (can you forbid passing null to an argument? maybe a default value?)
+
+<a name="chapter8">
+<h1>Chapter 8-  Boundaries</h1>
+</a>
+
+## Third party code
+* If you're using `java.util.Map` for example, we might pass the object around, but we might not need all the functionality that `Map` provides.
+* If you need to retrieve objects from the map, you'll either need to require generics `Map<Sensor> sensors`, or casting `(Sensor)sensors.get...`
+
+A cleaner way is to make a boundary on `Map` so only the necessary methods are exposed:
+```java 
+public class Sensors {
+ private Map sensors = new HashMap();
+ 
+ public Sensor getById(String id) {
+  return (Sensor) sensors.get(id);
+ }
+}
+```
+
+## Write tests that check understanding of API.
+
+## Using Code that doesn't exist 
+* If you're working with another team, you can define your own interface (that you _wish_ they could provide), and then build out whatever you need under those assumptions.
+* Interesting things happen at boundaries. Good software design should be able to accomodate change wihtou significant rework.
+
