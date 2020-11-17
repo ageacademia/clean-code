@@ -217,3 +217,40 @@ public class Sensors {
 * If you're working with another team, you can define your own interface (that you _wish_ they could provide), and then build out whatever you need under those assumptions.
 * Interesting things happen at boundaries. Good software design should be able to accomodate change wihtou significant rework.
 
+<a name="chapter9">
+<h1>Chapter 9 - Unit Tests</h1>
+</a>
+
+Three Laws of Test Driven Development (TDD)
+* Avoid writing production code until a unit test has been written.
+* Only write enough of a unit test that is sufficient to fail. 
+* Only write enough production code to pass a test.
+
+Build-Operate-Check pattern: build the test data, then operate (mutate) on it, and then check the changes. You can refactor the test logic so that the three-part logic is evident from reading. 
+
+Minimize number of asserts per concept, and one concept per test.
+Test should be 
+* Fast
+* Independent of one another
+* Repeatable in different environments
+* Clearly state if they pass or fail
+* Written timely 
+
+<a name="chapter10">
+<h1>Chapter 10 - Classes</h1>
+</a>
+
+* Public static constants 
+* Private variables
+* Private instance variables 
+* Public functions
+* Private functions (stepdown rule)
+
+Don't make classes too big. For example, class names including weasel words like Processor or Manager or Super often hint at unfortunate aggregation of responsibilities. We should also be able to write a brief description of the class in about 25 words, without using the words “if,” “and,” “or,” or “but.”
+
+## Organizing for Change
+Knowing when a class violates SRP (Single Responsibility Principle):
+* Private method behavior that applies only to a subset of the class
+
+DIP (Dependency Inversion Principle):
+* Classes depend on abstraction instead of detail (think interfaces, base classes, instead of derived/children classes)
