@@ -254,3 +254,27 @@ Knowing when a class violates SRP (Single Responsibility Principle):
 
 DIP (Dependency Inversion Principle):
 * Classes depend on abstraction instead of detail (think interfaces, base classes, instead of derived/children classes)
+
+<a name="chapter11">
+<h1>Chapter 11 - Systems</h1>
+</a>
+
+## Separation of concerns
+
+### Abstract factories 
+(you can use them to abstract away the construction of objects away from the main application). This allows dependencies to point _away_ from main, but main still retains control over when and how objects are built. 
+```
+ main   -- > application
+ |            |
+ |            |
+ v            v
+builder -- > object
+```
+
+### Dependency Injection
+An object receives other objects it depends on, as opposed to creating them itself
+
+### Cross-cutting concerns
+Aspect-oriented programming (AOP). You declare which in-memory objects (entity beans) should be persisted, and then delegate the act of persistence to a persistence framework.
+* Big Design Up Front (BDUF) is harmful because it inhibits adaptability
+* Postpone decisions until the last possible moment (so you have more information)
