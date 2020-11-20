@@ -278,3 +278,47 @@ An object receives other objects it depends on, as opposed to creating them itse
 Aspect-oriented programming (AOP). You declare which in-memory objects (entity beans) should be persisted, and then delegate the act of persistence to a persistence framework.
 * Big Design Up Front (BDUF) is harmful because it inhibits adaptability
 * Postpone decisions until the last possible moment (so you have more information)
+
+<a name="chapter12">
+<h1>Chapter 12 - Emergence</h1>
+</a>
+
+* Run all tests
+* Refactor
+* Deduplicate (use the template method to help identify common workflows that can be deduplicated!)
+* Expressive
+* Minimal classes and methods
+
+
+<a name="chapter13">
+<h1>Chapter 13 - Concurrency</h1>
+</a>
+Think of concurrency as a decoupling strategy. It abstracts when something gets done from what is getting done.
+
+## Concurrency defense principles
+How to write principled concurrent code:
+* Single Responsibility Principle - keep concurrent code separate from non-concurrent code
+* Limit data sharing 
+* Use data copies
+* Independent threads (one thread serves one client request)
+
+## Knowledge
+Concurrency libraries 
+Execution Models
+* Bound Resources
+* Mutex
+* Starvation
+* Dead/livelock
+
+the `synchronized` keyword places a guard on a section of code (so it can be only 1 thread executing at a time. These are expensive, so design with as few critical sections. 
+
+## Shut-down code
+Deadlocked threads, or threads waiting for a signal that doesn't come
+
+## Testing threaded code
+* Make it easy to tune number of threads running
+* More threads than processors
+* Different platforms
+
+* Force code to run in different order (like `wait(), sleep(), yield()`). This is a _shotgun_ approach, we might not find flaws.
+* Jiggle approach (randomly picks different orderings, and rerun the test many times)
